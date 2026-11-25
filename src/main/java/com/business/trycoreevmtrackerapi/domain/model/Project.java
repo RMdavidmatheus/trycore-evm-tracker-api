@@ -9,11 +9,11 @@ public record Project(
         UUID id,
         String name,
         String description,
+        boolean isActive,
         BigDecimal totalPlannedBudget,
         BigDecimal totalActualCost,
         List<Activity> activities,
         EvmMetrics consolidatedMetrics,
-        boolean isActive,
         LocalDateTime createdAt,
         LocalDateTime updatedAt
 ) {}
