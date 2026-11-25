@@ -1,7 +1,7 @@
 package com.business.trycoreevmtrackerapi.domain.model;
 
 import java.math.BigDecimal;
-import java.time.OffsetDateTime;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -13,6 +13,7 @@ public record Project(
         BigDecimal totalActualCost,
         List<Activity> activities,
         EvmMetrics consolidatedMetrics,
-        OffsetDateTime createdAt,
-        OffsetDateTime updatedAt
+        boolean isActive,
+        LocalDateTime createdAt,
+        LocalDateTime updatedAt
 ) {}

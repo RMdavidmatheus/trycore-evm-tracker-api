@@ -27,6 +27,9 @@ dependencies {
     implementation 'org.springdoc:springdoc-openapi-starter-webmvc-api:latest.release'
     implementation 'com.scalar.maven:scalar:0.1.0'
     implementation("io.github.cdimascio:java-dotenv:latest.release")
+    implementation 'org.mapstruct:mapstruct:1.6.3'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.6.3'
+    annotationProcessor 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     runtimeOnly 'org.postgresql:postgresql'
