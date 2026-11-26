@@ -1,13 +1,12 @@
 package com.business.trycoreevmtrackerapi;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.junit.platform.suite.api.SelectPackages;
+import org.junit.platform.suite.api.Suite;
 
-@SpringBootTest
+@Suite
+@SelectPackages({
+        "com.business.trycoreevmtrackerapi.application.service",
+        "com.business.trycoreevmtrackerapi.infrastructure.adapter.in.rest.controller"
+})
 class TrycoreEvmTrackerApiApplicationTests {
-
-    @Test
-    void contextLoads() {
-    }
-
 }
