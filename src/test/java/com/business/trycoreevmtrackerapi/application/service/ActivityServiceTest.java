@@ -50,11 +50,12 @@ class ActivityServiceTest {
     @Test
     void createActivityFailsWhenProjectDoesNotExist() {
         UUID projectId = UUID.randomUUID();
+        Activity activity = activity(UUID.randomUUID(), projectId, "Build", true);
         when(projectRepositoryPort.existsActiveById(projectId)).thenReturn(false);
 
         ResourceNotFoundException exception = assertThrows(
                 ResourceNotFoundException.class,
-                () -> service.createActivity(projectId, activity(UUID.randomUUID(), projectId, "Build", true))
+                () -> service.createActivity(projectId, activity)
         );
 
         assertEquals("Proyecto no encontrado con ID: " + projectId, exception.getMessage());
@@ -95,10 +96,11 @@ class ActivityServiceTest {
     void updateActivityFailsWhenProjectDoesNotExist() {
         UUID projectId = UUID.randomUUID();
         UUID activityId = UUID.randomUUID();
+        Activity activity = activity(activityId, projectId, "Build", true);
         when(projectRepositoryPort.existsActiveById(projectId)).thenReturn(false);
 
         assertThrows(ResourceNotFoundException.class,
-                () -> service.updateActivity(projectId, activityId, activity(activityId, projectId, "Build", true)));
+                () -> service.updateActivity(projectId, activityId, activity));
 
         verifyNoInteractions(activityRepositoryPort);
     }
@@ -107,12 +109,13 @@ class ActivityServiceTest {
     void updateActivityFailsWhenActivityDoesNotExist() {
         UUID projectId = UUID.randomUUID();
         UUID activityId = UUID.randomUUID();
+        Activity activity = activity(activityId, projectId, "Build", true);
         when(projectRepositoryPort.existsActiveById(projectId)).thenReturn(true);
         when(activityRepositoryPort.findActiveByIdAndProjectId(activityId, projectId)).thenReturn(Optional.empty());
 
         ResourceNotFoundException exception = assertThrows(
                 ResourceNotFoundException.class,
-                () -> service.updateActivity(projectId, activityId, activity(activityId, projectId, "Build", true))
+                () -> service.updateActivity(projectId, activityId, activity)
         );
 
         assertEquals("Actividad no encontrada con ID: " + activityId, exception.getMessage());
