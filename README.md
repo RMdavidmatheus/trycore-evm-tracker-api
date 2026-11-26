@@ -77,7 +77,7 @@ Ejecuta el proyecto usando el wrapper de Gradle desde la raíz del repositorio:
 .\gradlew.bat bootRun
 ```
 
-Cuando aparezca en consola el mensaje `Started TrycoreEvmTrackerApiApplication`, la API quedará disponible en **`http://localhost:8080`**.
+Cuando aparezca en consola el mensaje `Started TrycoreEvmTrackerApiApplication`, la API quedará disponible en **`http://localhost:3000`**.
 
 ---
 
@@ -85,8 +85,8 @@ Cuando aparezca en consola el mensaje `Started TrycoreEvmTrackerApiApplication`,
 
 Una vez que la aplicación esté corriendo localmente, ingresa a la ruta `/api-docs` en tu navegador para ser redirigido a **Scalar**, donde podrás consultar los esquemas de entrada/salida, códigos de error y probar todos los endpoints directamente:
 
-* **Scalar API Reference:** [http://localhost:8080/api-docs](http://localhost:8080/api-docs)
-* **Especificación OpenAPI (JSON):** [http://localhost:8080/v3/api-docs](http://localhost:8080/v3/api-docs)
+* **Scalar API Reference:** [http://localhost:3000/api-docs](http://localhost:8080/api-docs)
+* **Especificación OpenAPI (JSON):** [http://localhost:3000/v3/api-docs](http://localhost:8080/v3/api-docs)
 
 ### Configuración en `application.yml`
 Para asegurar que `/api-docs` redirija correctamente a la interfaz interactiva de Scalar sin colisionar con el contrato JSON de OpenAPI:

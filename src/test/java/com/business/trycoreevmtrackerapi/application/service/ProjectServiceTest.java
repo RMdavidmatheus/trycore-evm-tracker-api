@@ -127,10 +127,11 @@ class ProjectServiceTest {
     @Test
     void updateProjectFailsWhenProjectDoesNotExist() {
         UUID id = UUID.randomUUID();
+        Project request = project(id, "Updated", "Description", true, null);
         when(projectRepositoryPort.findActiveById(id)).thenReturn(Optional.empty());
 
         assertThrows(ResourceNotFoundException.class,
-                () -> service.updateProject(id, project(id, "Updated", "Description", true, null)));
+                () -> service.updateProject(id, request));
 
         verify(projectRepositoryPort, never()).save(any(Project.class));
     }
